@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#170d2b">
+    <title>Archive Search | The Missing Diya</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="search-page">
+
+
+    <header class="topbar search-topbar">
+        <a class="brand" href="/">
+            <span class="brand-icon">🪔</span>
+            <span>
+                UNI6CTF
+                <small>DIWALI EDITION</small>
+            </span>
+        </a>
+
+        <span class="difficulty">ARCHIVE TERMINAL</span>
+    </header>
+
+    <main class="search-main">
+
+        <a class="back-link" href="/">← Return to Ayodhya</a>
+
+        <section class="results-card">
+
+            <p class="eyebrow">ROYAL ARCHIVES · SEARCH REPORT</p>
+
+            <h1 class="results-title">
+                Search <span>Results</span>
+            </h1>
+
+            <div class="query-box">
+                <span class="query-label">YOUR SEARCH</span>
+                <p class="query-value">{{ query | safe }}</p>
+            </div>
+
+            <div class="archive-message">
+                <span class="archive-symbol">✧</span>
+
+                <div class="archive-message-content">
+                    <h2>The archive remains silent</h2>
+
+                    <p>
+                        No matching diya record was found in the public archive.
+                        Perhaps the royal archivist left a clue elsewhere.
+                    </p>
+                </div>
+            </div>
+
+            <form action="/search" method="GET" class="search-again">
+
+                <label for="q">SEARCH AGAIN</label>
+
+                <div class="search-row">
+                    <input id="q" name="q" type="text" maxlength="200" placeholder="Try another archive term..."
+                        required>
+
+                    <button type="submit">Search →</button>
+                </div>
+
+            </form>
+
+            <p class="archive-footnote">
+                ARCHIVE STATUS: ONLINE · ACCESS LEVEL: PUBLIC
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer class="search-footer">
+        <span>🪔 The Missing Diya · UNI6CTF 2.0</span>
+        <span>LET LIGHT CONQUER DARKNESS</span>
+    </footer>
+
+
+</body>
+
+</html>

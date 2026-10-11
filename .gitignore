@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+.git/
+app_backup.py
+app_working_backup.py
+bot_working_backup.py
+search_working_backup.html

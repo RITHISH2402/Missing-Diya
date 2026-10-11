@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#170d2b">
+    <meta name="description" content="Investigate the mystery of the missing diya in this Diwali-themed UNI6CTF web challenge.">
+    <title>The Missing Diya | UNI6CTF 2.0</title>
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+</head>
+
+<body class="home-page">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+
+<header class="topbar">
+    <a class="brand" href="/">
+        <span class="brand-icon">🪔</span>
+        <span>UNI6CTF <small>DIWALI EDITION</small></span>
+    </a>
+    <span class="difficulty">WEB · EASY</span>
+</header>
+
+<main class="hero hero-with-background">
+    <div class="hero-background" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <section class="hero-content">
+        <p class="eyebrow"><span></span> A FESTIVAL MYSTERY</p>
+
+        <h1>The Missing <span>Diya</span></h1>
+
+        <p class="subtitle">
+            When the lamps of Ayodhya were prepared for the grand
+            celebration, one sacred diya vanished without a trace.
+        </p>
+
+        <p class="story">
+            The royal archivist has left behind a search terminal.
+            Investigate the festival records, follow the clues, and
+            discover what happened to the missing light.
+        </p>
+
+        <a class="primary-button" href="#investigation">
+            Begin Investigation <span>→</span>
+        </a>
+
+        <div class="challenge-meta">
+            <div>
+                <span class="meta-icon">⌘</span>
+                <span>WEB EXPLOITATION</span>
+            </div>
+            <div>
+                <span class="meta-icon">✦</span>
+                <span>100 POINTS</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="diya-art" aria-label="A glowing diya">
+        <div class="halo"></div>
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="spark spark-one">✦</div>
+        <div class="spark spark-two">✧</div>
+        <div class="spark spark-three">✦</div>
+
+        <div class="flame">
+            <div class="flame-inner"></div>
+        </div>
+
+        <div class="diya-bowl">
+            <div class="bowl-rim"></div>
+            <div class="bowl-pattern">✺　✺　✺</div>
+        </div>
+
+        <div class="light-reflection"></div>
+
+        <p class="art-caption">THE LIGHT MUST RETURN</p>
+    </section>
+</main>
+
+<section class="investigation" id="investigation">
+    <div class="section-heading">
+        <p class="eyebrow">ROYAL ARCHIVES · AYODHYA</p>
+        <h2>Investigate the records</h2>
+        <p>
+            Search the festival archive for clues about the missing diya.
+        </p>
+    </div>
+
+    <form action="/search" method="GET" class="search-panel">
+        <label for="q">ARCHIVE SEARCH</label>
+
+        <div class="search-row">
+            <span class="search-icon">⌕</span>
+            <input
+                type="text"
+                id="q"
+                name="q"
+                placeholder="Search festival records..."
+                maxlength="200"
+                required
+            >
+            <button type="submit">Search <span>→</span></button>
+        </div>
+
+        <p class="search-note">
+            Hint: The archive remembers more than it reveals.
+        </p>
+    </form>
+</section>
+
+<footer>
+    <span>🪔 Made for UNI6CTF 2.0</span>
+    <span>LET LIGHT CONQUER DARKNESS</span>
+</footer>
+
+
+</body>
+</html>

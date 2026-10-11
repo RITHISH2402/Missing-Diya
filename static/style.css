@@ -1,0 +1,1095 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --background: #10091d;
+    --panel: #1b112b;
+    --gold: #ffd48a;
+    --orange: #ff8b42;
+    --text: #fff4e5;
+    --muted: #b9a9c9;
+    --border: rgba(255, 212, 138, 0.19);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--text);
+    background:
+        radial-gradient(ellipse at 80% 20%, #302044 0%, transparent 40%),
+        radial-gradient(ellipse at 15% 75%, #28132a 0%, transparent 38%),
+        var(--background);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+.ambient {
+    position: fixed;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+.ambient-one {
+    top: 15%;
+    left: -150px;
+    background: #ff9c44;
+}
+
+.ambient-two {
+    right: -150px;
+    bottom: 10%;
+    background: #a15cff;
+}
+
+.topbar {
+    width: min(1160px, 90%);
+    margin: auto;
+    padding: 28px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.brand {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+}
+
+.brand-icon {
+    font-size: 29px;
+}
+
+.brand small {
+    display: block;
+    margin-top: 5px;
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 2.5px;
+}
+
+.difficulty {
+    padding: 9px 13px;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 1.7px;
+}
+
+.hero {
+    width: min(1160px, 90%);
+    min-height: 560px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 45px;
+    padding: 55px 0 70px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.eyebrow span {
+    display: inline-block;
+    width: 22px;
+    height: 1px;
+    margin: 0 9px 3px 0;
+    background: var(--gold);
+}
+
+h1 {
+    max-width: 650px;
+    margin: 25px 0;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(55px, 7vw, 88px);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -2px;
+}
+
+h1 span {
+    display: block;
+    color: var(--gold);
+    font-style: italic;
+}
+
+.subtitle {
+    max-width: 530px;
+    color: #f1e2f5;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 23px;
+    line-height: 1.45;
+}
+
+.story {
+    max-width: 510px;
+    margin: 20px 0 30px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.primary-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 28px;
+    padding: 16px 20px;
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    background: linear-gradient(120deg, #ffd48a, #f9a64e);
+    color: #28132a;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.primary-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255, 174, 77, 0.2);
+}
+
+.challenge-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 42px;
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 1.2px;
+}
+
+.challenge-meta div {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.meta-icon {
+    color: var(--gold);
+    font-size: 16px;
+}
+
+.diya-art {
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    isolation: isolate;
+}
+
+.halo {
+    position: absolute;
+    width: 310px;
+    height: 310px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 164, 66, 0.22), transparent 68%);
+    filter: blur(8px);
+}
+
+.orbit {
+    position: absolute;
+    width: 310px;
+    height: 310px;
+    border: 1px solid rgba(255, 211, 133, 0.14);
+    border-radius: 50%;
+}
+
+.orbit-one {
+    transform: scaleX(0.72) rotate(25deg);
+}
+
+.orbit-two {
+    transform: scaleX(0.72) rotate(-25deg);
+}
+
+.flame {
+    position: absolute;
+    z-index: 3;
+    top: 100px;
+    width: 60px;
+    height: 100px;
+    border-radius: 70% 20% 65% 35%;
+    background: linear-gradient(155deg, #fff9b2 0%, #ffd25e 35%, #ff8c32 72%, #f54c26 100%);
+    transform: rotate(2deg);
+    box-shadow: 0 0 25px rgba(255, 169, 62, 0.65),
+                0 0 65px rgba(255, 126, 38, 0.35);
+    animation: flicker 2.3s ease-in-out infinite alternate;
+}
+
+.flame-inner {
+    position: absolute;
+    top: 22px;
+    left: 17px;
+    width: 23px;
+    height: 52px;
+    border-radius: 60% 20% 60% 30%;
+    background: #fff7d3;
+}
+
+.diya-bowl {
+    position: absolute;
+    z-index: 4;
+    top: 200px;
+    width: 210px;
+    height: 90px;
+    overflow: hidden;
+    border-radius: 15% 15% 55% 55%;
+    background: linear-gradient(180deg, #ffcb72 0%, #ce6c27 40%, #702b26 100%);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35),
+                0 0 40px rgba(255, 135, 44, 0.22);
+    transform: perspective(120px) rotateX(-8deg);
+}
+
+.bowl-rim {
+    height: 16px;
+    border: 3px solid #ffe2a0;
+    border-radius: 50%;
+    background: #ffad4f;
+}
+
+.bowl-pattern {
+    padding-top: 22px;
+    color: #ffe4a7;
+    font-size: 18px;
+    text-align: center;
+}
+
+.light-reflection {
+    position: absolute;
+    top: 305px;
+    width: 170px;
+    height: 22px;
+    border-radius: 50%;
+    background: #ff9b3d;
+    filter: blur(25px);
+    opacity: 0.5;
+}
+
+.spark {
+    position: absolute;
+    color: var(--gold);
+    text-shadow: 0 0 15px #ff9f40;
+    animation: twinkle 2s ease-in-out infinite alternate;
+}
+
+.spark-one {
+    top: 110px;
+    left: 20%;
+}
+
+.spark-two {
+    top: 170px;
+    right: 12%;
+    font-size: 24px;
+    animation-delay: 0.6s;
+}
+
+.spark-three {
+    top: 290px;
+    left: 20%;
+    animation-delay: 1s;
+}
+
+.art-caption {
+    position: absolute;
+    bottom: 15px;
+    color: #bba6be;
+    font-size: 9px;
+    letter-spacing: 4px;
+}
+
+.investigation {
+    position: relative;
+    z-index: 2;
+    padding: 75px 5% 85px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(9, 5, 17, 0.38);
+}
+
+.section-heading {
+    text-align: center;
+}
+
+.section-heading h2 {
+    margin: 15px 0 10px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(34px, 5vw, 49px);
+    font-weight: 500;
+}
+
+.section-heading > p:last-child {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.search-panel {
+    width: min(650px, 100%);
+    margin: 38px auto 0;
+    padding: 25px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: rgba(34, 21, 47, 0.72);
+}
+
+.search-panel label {
+    display: block;
+    margin-bottom: 13px;
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.search-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 5px;
+    background: rgba(10, 6, 17, 0.6);
+}
+
+.search-icon {
+    padding-left: 7px;
+    color: var(--gold);
+    font-size: 25px;
+}
+
+.search-row input {
+    flex: 1;
+    width: 0;
+    padding: 12px 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: var(--text);
+    font: inherit;
+    font-size: 13px;
+}
+
+.search-row input::placeholder {
+    color: #8f819f;
+}
+
+.search-row button {
+    padding: 13px 17px;
+    border: 0;
+    border-radius: 3px;
+    background: var(--gold);
+    color: #241329;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.search-row button:hover {
+    background: #ffe5b0;
+}
+
+.search-note {
+    margin: 13px 0 0;
+    color: #9d8ba9;
+    font-size: 11px;
+}
+
+footer {
+    width: min(1160px, 90%);
+    margin: auto;
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    color: #9888a4;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+@keyframes flicker {
+    from {
+        transform: rotate(-2deg) scale(0.97);
+    }
+    to {
+        transform: rotate(3deg) scale(1.04);
+    }
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.4;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+@media (max-width: 760px) {
+    .topbar {
+        padding: 20px 0;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding-top: 55px;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: clamp(56px, 12vw, 76px);
+    }
+
+    .subtitle,
+    .story {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .challenge-meta {
+        justify-content: center;
+    }
+
+    .diya-art {
+        min-height: 360px;
+    }
+
+    .orbit {
+        width: 270px;
+        height: 270px;
+    }
+
+    .footer {
+        flex-direction: column;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .search-panel {
+        padding: 17px;
+    }
+
+    .search-row {
+        flex-wrap: wrap;
+    }
+
+    .search-row input {
+        min-width: 120px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* =========================================
+   THE MISSING DIYA — SEARCH RESULTS PAGE
+   Scoped to .search-page so the homepage
+   keeps its existing design.
+   ========================================= */
+
+body.search-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.search-page .search-topbar {
+    width: min(1120px, calc(100% - 64px));
+    margin-inline: auto;
+}
+
+.search-page .search-results-page {
+    width: min(1000px, calc(100% - 64px));
+    min-height: auto;
+    margin: 0 auto;
+    padding: 36px 0 64px;
+    box-sizing: border-box;
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+
+.search-page .back-link {
+    display: inline-block;
+    margin: 0 0 28px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.search-page .back-link:hover {
+    color: var(--gold);
+}
+
+.search-page .results-card {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 36px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(27, 17, 43, 0.72);
+    box-sizing: border-box;
+}
+
+.search-page .results-title {
+    max-width: 100%;
+    margin: 20px 0 32px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(48px, 7vw, 76px);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -1.5px;
+}
+
+.search-page .results-title span {
+    display: block;
+    color: var(--gold);
+    font-style: italic;
+}
+
+.search-page .query-box {
+    width: 100%;
+    min-width: 0;
+    margin: 0 0 28px;
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: rgba(10, 6, 17, 0.38);
+    box-sizing: border-box;
+}
+
+.search-page .query-label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.search-page .query-value {
+    margin: 0;
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.search-page .archive-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin: 28px 0;
+}
+
+.search-page .archive-symbol {
+    flex: 0 0 auto;
+    color: var(--gold);
+    font-size: 24px;
+    line-height: 1;
+}
+
+.search-page .archive-message-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.search-page .archive-message h2 {
+    margin: 0 0 10px;
+    font-size: 21px;
+    line-height: 1.35;
+}
+
+.search-page .archive-message p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Keep the label above the input row.
+   Do not make the whole form a flex row. */
+.search-page .search-again {
+    display: block;
+    width: 100%;
+    margin-top: 32px;
+}
+
+.search-page .search-again label {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.search-page .search-again .search-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 5px;
+    background: rgba(10, 6, 17, 0.6);
+    box-sizing: border-box;
+}
+
+.search-page .search-again .search-row input {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    padding: 12px 8px;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: var(--text);
+    font: inherit;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+.search-page .search-again .search-row input::placeholder {
+    color: #8f819f;
+}
+
+.search-page .search-again .search-row button {
+    flex: 0 0 auto;
+    padding: 13px 17px;
+    border: 0;
+    border-radius: 3px;
+    background: var(--gold);
+    color: #241329;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.search-page .search-again .search-row button:hover {
+    background: #ffe5b0;
+}
+
+.search-page .archive-footnote {
+    margin: 26px 0 0;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.7;
+    letter-spacing: 1px;
+}
+
+.search-page .search-footer {
+    width: min(1120px, calc(100% - 64px));
+    margin: auto;
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    color: #9888a4;
+    font-size: 9px;
+    letter-spacing: 1px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 760px) {
+    .search-page .search-topbar,
+    .search-page .search-footer {
+        width: calc(100% - 36px);
+    }
+
+    .search-page .search-main,
+    .search-page .search-results-page {
+        width: calc(100% - 36px);
+        padding-top: 28px;
+        padding-bottom: 40px;
+    }
+
+    .search-page .results-card {
+        padding: 22px;
+    }
+
+    .search-page .results-title {
+        font-size: clamp(46px, 11vw, 66px);
+    }
+
+    .search-page .search-again .search-row {
+        gap: 8px;
+    }
+
+    .search-page .search-again .search-row button {
+        padding-inline: 13px;
+    }
+
+    .search-page .search-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 22px 0;
+    }
+}
+
+@media (max-width: 440px) {
+    .search-page .results-card {
+        padding: 18px;
+    }
+
+    .search-page .search-again .search-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-page .search-again .search-row input {
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .search-page .search-again .search-row button {
+        width: 100%;
+        min-height: 44px;
+    }
+}
+/* Compact search box on the results page */
+.search-page .search-again {
+max-width: 650px;
+margin: 32px auto 0;
+}
+
+.search-page .search-again .search-row {
+padding: 6px;
+gap: 8px;
+border-radius: 8px;
+}
+
+.search-page .search-again .search-row input {
+padding: 10px 12px;
+}
+
+.search-page .search-again .search-row button {
+padding: 12px 16px;
+white-space: nowrap;
+}
+
+@media (max-width: 440px) {
+.search-page .search-again {
+max-width: 100%;
+}
+}
+/* Compact YOUR SEARCH result box */
+.search-page .query-box {
+max-width: 650px;
+margin: 0 auto 28px;
+padding: 18px 20px;
+border-radius: 8px;
+}
+
+/* Keep the result content aligned with the compact box */
+.search-page .archive-message {
+max-width: 650px;
+margin: 28px auto;
+}
+
+.search-page .search-again {
+max-width: 650px;
+margin: 32px auto 0;
+}
+
+.search-page .archive-footnote {
+max-width: 650px;
+margin: 26px auto 0;
+}
+/* Center the search report heading */
+.search-page .results-card > .eyebrow,
+.search-page .results-card > .results-title {
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+}
+
+.search-page .results-card > .results-title {
+width: 100%;
+}
+
+.search-page .results-card > .eyebrow {
+line-height: 1.6;
+}
+/* Premium Return to Ayodhya button */
+.search-page .back-link {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+margin: 0 0 28px;
+padding: 11px 18px;
+border: 1px solid rgba(255, 207, 125, 0.35);
+border-radius: 999px;
+background: rgba(255, 207, 125, 0.06);
+color: var(--gold);
+font-size: 12px;
+font-weight: 600;
+letter-spacing: 0.3px;
+text-decoration: none;
+transition:
+background 0.2s ease,
+border-color 0.2s ease,
+transform 0.2s ease,
+box-shadow 0.2s ease;
+}
+
+.search-page .back-link:hover {
+background: rgba(255, 207, 125, 0.14);
+border-color: var(--gold);
+box-shadow: 0 0 18px rgba(255, 190, 100, 0.12);
+color: #ffe6b5;
+transform: translateY(-2px);
+}
+
+.search-page .back-link:focus-visible {
+outline: 2px solid var(--gold);
+outline-offset: 4px;
+}
+
+.search-page .back-link:active {
+transform: translateY(0);
+}
+
+/* =========================================
+   AYODHYA BACKGROUND — PURPLE PANEL FIX
+   ========================================= */
+
+html {
+    min-height: 100%;
+    background: #170d2b;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background-image: url("/static/ayodhya-diwali-1920x1080.png") !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+}
+
+/* Remove the purple background from the hero */
+.hero,
+main.hero {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove overlays that may add purple shading */
+.hero::before,
+.hero::after,
+.hero-content::before,
+.hero-content::after {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+}
+
+/* Hide ambient decorative layers */
+.ambient,
+.ambient-one,
+.ambient-two {
+    display: none !important;
+}
+
+/* Keep content transparent */
+.hero-content,
+.diya-art {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+/* Transparent header and footer */
+.topbar,
+footer {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+/* Remove section-level purple backgrounds */
+.investigation {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+/* ===== TYPOGRAPHY VISIBILITY FIX ===== */
+
+/* Improve text rendering across the page */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Main heading */
+.hero-content h1 {
+    color: #fffaf0;
+    font-weight: 700;
+    line-height: 1.04;
+    letter-spacing: -1.5px;
+    text-shadow: 0 3px 12px rgba(20, 5, 15, 0.8);
+}
+
+.hero-content h1 span {
+    color: #ffd27b;
+    text-shadow: 0 3px 14px rgba(30, 8, 0, 0.8);
+}
+
+/* Main story text */
+.hero-content .subtitle {
+    color: #ffffff;
+    font-weight: 600;
+    line-height: 1.7;
+    text-shadow: 0 2px 8px rgba(15, 5, 15, 0.95);
+}
+
+.hero-content .story {
+    color: #fff5e8;
+    font-weight: 500;
+    line-height: 1.9;
+    text-shadow: 0 2px 7px rgba(15, 5, 15, 0.95);
+}
+
+/* Small headings and labels */
+.eyebrow,
+.challenge-meta,
+.difficulty,
+.brand,
+.art-caption {
+    color: #ffe09a;
+    font-weight: 700;
+    text-shadow: 0 2px 6px rgba(15, 5, 15, 0.95);
+}
+
+/* Button text */
+.primary-button {
+    color: #24101a;
+    font-weight: 700;
+    text-shadow: none;
+}
+
+/* Make small metadata easier to read */
+.challenge-meta span,
+.art-caption {
+    letter-spacing: 1.5px;
+}
+
+/* Improve contrast without adding a card or overlay */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.diya-art {
+    position: relative;
+    z-index: 1;
+}
+
+/* Keep the text readable on different screen sizes */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: clamp(3rem, 12vw, 5rem);
+        letter-spacing: -1px;
+    }
+
+    .hero-content .subtitle {
+        font-size: 1.15rem;
+    }
+
+    .hero-content .story {
+        font-size: 0.95rem;
+    }
+}
+
+/* Make the investigation section description visible */
+.section-heading > p:not(.eyebrow) {
+    color: #ffffff !important;
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.8;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95);
+    opacity: 1;
+}
+
+body.home-page {
+    background-color: #1b0c12 !important;
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(20, 8, 10, 0.60),
+            rgba(20, 8, 10, 0.15)
+        ),
+        url("ayodhya-diwali-1920x1080.png") !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+}
+
+.home-page .hero {
+    background: transparent !important;
+}
+
+.home-page .hero-background,
+.home-page .hero-overlay {
+    display: none !important;
+}
