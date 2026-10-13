@@ -27,6 +27,7 @@ completion_lock = Lock()
 pending_visits = {}
 
 
+
 def is_allowed_search_url(url):
     try:
         parsed = urlparse(url)
@@ -41,6 +42,7 @@ def is_allowed_search_url(url):
         )
     except (ValueError, TypeError):
         return False
+
 
 
 def cleanup_expired_visits():
