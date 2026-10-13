@@ -1,5 +1,4 @@
-﻿
-import json
+
 import os
 import secrets
 import time
@@ -7,19 +6,21 @@ from threading import Lock
 from urllib.parse import urlparse
 
 from flask import Flask, render_template, request, jsonify
+
 from bot import visit_as_archivist
 
 app = Flask(__name__)
+
 APP_PORT = int(os.environ.get("PORT", "5000"))
 
 app.config["SECRET_KEY"] = os.environ.get(
     "SECRET_KEY",
-    "local-development-only-change-before-deployment"
+    "local-development-only-change-before-deployment",
 )
 
 FLAG = os.environ.get(
     "CTF_FLAG",
-    "UNI6CTF{when_ayodhya_lost_its_light_rama_returned}"
+    "UNI6CTF{when_ayodhya_lost_its_light_rama_returned}",
 )
 
 VISIT_TOKEN_TTL = 120
@@ -27,10 +28,11 @@ completion_lock = Lock()
 pending_visits = {}
 
 
-
 def is_allowed_search_url(url):
+    """Accept only local search URLs on this service's assigned port."""
     try:
         parsed = urlparse(url)
+
         return (
             parsed.scheme == "http"
             and parsed.hostname == "127.0.0.1"
@@ -44,27 +46,34 @@ def is_allowed_search_url(url):
         return False
 
 
-
 def cleanup_expired_visits():
+    """Remove expired archivist visits."""
     now = time.time()
+
     expired = [
         token
         for token, visit in pending_visits.items()
         if now - visit["created_at"] > VISIT_TOKEN_TTL
     ]
+
     for token in expired:
         pending_visits.pop(token, None)
 
 
 @app.get("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", app_port=APP_PORT)
 
 
 @app.get("/search")
 def search():
     query = request.args.get("q", "")[:200]
-    return render_template("search.html", query=query)
+
+    return render_template(
+        "search.html",
+        query=query,
+        app_port=APP_PORT,
+    )
 
 
 @app.post("/report")
@@ -74,7 +83,7 @@ def report():
     if not is_allowed_search_url(submitted_url):
         return jsonify({
             "ok": False,
-            "message": "Submit a valid local archive search URL."
+            "message": "Submit a valid local archive search URL.",
         }), 400
 
     token = secrets.token_urlsafe(32)
@@ -94,7 +103,13 @@ def report():
         completed = bool(visit and visit["completed"])
 
     if not result.get("ok"):
-        return jsonify(result), 502
+        return jsonify({
+            "ok": False,
+            "message": result.get(
+                "message",
+                "The archivist could not inspect that record.",
+            ),
+        }), 502
 
     return jsonify({
         "ok": True,
@@ -123,7 +138,7 @@ def challenge_callback():
         if visit is None:
             return jsonify({
                 "ok": False,
-                "message": "Invalid or expired visit."
+                "message": "Invalid or expired visit.",
             }), 403
 
         visit["completed"] = True
@@ -137,6 +152,4 @@ def health():
 
 
 if __name__ == "__main__":
-    # Keep debug mode off for the challenge runtime.
-    app.run(debug=False)
-
+    app.run(host="0.0.0.0", port=APP_PORT, debug=False)
