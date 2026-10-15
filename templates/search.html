@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#170d2b">
     <title>Archive Search | The Missing Diya</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body class="search-page">
+
     <header class="topbar search-topbar">
         <a class="brand" href="/">
             <span class="brand-icon">🪔</span>
@@ -18,6 +21,7 @@
                 <small>DIWALI EDITION</small>
             </span>
         </a>
+
         <span class="difficulty">ARCHIVE TERMINAL</span>
     </header>
 
@@ -25,21 +29,26 @@
         <a class="back-link" href="/">← Return to Ayodhya</a>
 
         <section class="results-card">
+
             <p class="eyebrow">ROYAL ARCHIVES · SEARCH REPORT</p>
 
             <h1 class="results-title">
                 Search <span>Results</span>
             </h1>
 
+            <!-- Search query -->
             <div class="query-box">
                 <span class="query-label">YOUR SEARCH</span>
                 <p class="query-value">{{ query | safe }}</p>
             </div>
 
+            <!-- Archive response -->
             <div class="archive-message">
                 <span class="archive-symbol">✧</span>
+
                 <div class="archive-message-content">
                     <h2>The archive remains silent</h2>
+
                     <p>
                         No matching diya record was found in the public archive.
                         Perhaps the royal archivist left a clue elsewhere.
@@ -47,34 +56,48 @@
                 </div>
             </div>
 
-            <!-- Progressive player hints -->
+            <!-- Progressive hints -->
             <div class="archive-message" style="margin-top: 20px;">
                 <span class="archive-symbol">✧</span>
+
                 <div class="archive-message-content">
                     <h2>Archivist's Notes</h2>
+
                     <p>
                         Every investigation begins with a careful observation.
                     </p>
 
-                    <details>
+                    <details style="margin-top: 14px;">
                         <summary>Hint 1</summary>
-                        The archive repeats more than ordinary search text.
+
+                        <p style="margin-top: 8px;">
+                            The archive repeats more than ordinary search text.
+                        </p>
                     </details>
 
-                    <details>
+                    <details style="margin-top: 14px;">
                         <summary>Hint 2</summary>
-                        Can you make the archivist's browser execute JavaScript?
+
+                        <p style="margin-top: 8px;">
+                            Can you make the archivist's browser execute JavaScript?
+                        </p>
                     </details>
 
-                    <details>
+                    <details style="margin-top: 14px;">
                         <summary>Hint 3</summary>
-                        Investigate how the archivist identifies a visit and reports a discovery.
+
+                        <p style="margin-top: 8px;">
+                            Investigate how the archivist identifies a visit
+                            and reports a discovery.
+                        </p>
                     </details>
                 </div>
             </div>
 
+            <!-- Search again -->
             <form action="/search" method="GET" class="search-again">
                 <label for="q">SEARCH AGAIN</label>
+
                 <div class="search-row">
                     <input
                         id="q"
@@ -84,14 +107,18 @@
                         placeholder="Try another archive term..."
                         required
                     >
+
                     <button type="submit">Search →</button>
                 </div>
             </form>
 
+            <!-- Submit a report to the archivist -->
             <div class="archive-message" style="margin-top: 28px;">
                 <span class="archive-symbol">✧</span>
+
                 <div class="archive-message-content">
                     <h2>Submit a record to the Royal Archivist</h2>
+
                     <p>
                         Have you discovered something suspicious?
                         Submit a local archive search URL for inspection.
@@ -101,6 +128,7 @@
 
             <form id="report-form" class="search-again">
                 <label for="report-url">ARCHIVE SEARCH URL</label>
+
                 <div class="search-row">
                     <input
                         id="report-url"
@@ -109,41 +137,66 @@
                         placeholder="http://127.0.0.1:{{ app_port }}/search?q=..."
                         required
                     >
+
                     <button type="submit">Submit →</button>
                 </div>
             </form>
 
-            <div id="report-result" class="archive-message"
-                 role="status" aria-live="polite" hidden>
+            <!-- Report result -->
+            <div
+                id="report-result"
+                class="archive-message"
+                role="status"
+                aria-live="polite"
+                hidden
+            >
                 <div class="archive-message-content">
                     <h2 id="report-message"></h2>
-                    <p id="report-flag" style="overflow-wrap:anywhere;"></p>
+
+                    <p
+                        id="report-flag"
+                        style="overflow-wrap: anywhere;"
+                    ></p>
                 </div>
             </div>
 
+            <!-- Report form handling -->
             <script>
-                const reportForm = document.getElementById("report-form");
-                const reportResult = document.getElementById("report-result");
-                const reportMessage = document.getElementById("report-message");
-                const reportFlag = document.getElementById("report-flag");
+                const reportForm =
+                    document.getElementById("report-form");
+
+                const reportResult =
+                    document.getElementById("report-result");
+
+                const reportMessage =
+                    document.getElementById("report-message");
+
+                const reportFlag =
+                    document.getElementById("report-flag");
 
                 reportForm.addEventListener("submit", async (event) => {
                     event.preventDefault();
 
                     reportResult.hidden = false;
+
                     reportMessage.textContent =
                         "The archivist is inspecting the record...";
+
                     reportFlag.textContent = "";
 
                     try {
                         const response = await fetch("/report", {
                             method: "POST",
+
                             headers: {
                                 "Content-Type":
                                     "application/x-www-form-urlencoded"
                             },
+
                             body: new URLSearchParams({
-                                url: document.getElementById("report-url").value
+                                url: document.getElementById(
+                                    "report-url"
+                                ).value
                             })
                         });
 
@@ -154,12 +207,14 @@
                             "The archivist could not inspect the record.";
 
                         if (data.flag) {
-                            reportFlag.textContent = "Flag: " + data.flag;
+                            reportFlag.textContent =
+                                "Flag: " + data.flag;
                         } else if (!response.ok) {
                             reportFlag.textContent =
                                 "Request failed (HTTP " +
                                 response.status + ").";
                         }
+
                     } catch (error) {
                         reportMessage.textContent =
                             "Could not contact the archivist. Please try again.";
@@ -170,6 +225,7 @@
             <p class="archive-footnote">
                 ARCHIVE STATUS: ONLINE · ACCESS LEVEL: PUBLIC
             </p>
+
         </section>
     </main>
 
@@ -177,5 +233,6 @@
         <span>🪔 The Missing Diya · UNI6CTF 2.0</span>
         <span>LET LIGHT CONQUER DARKNESS</span>
     </footer>
+
 </body>
 </html>
