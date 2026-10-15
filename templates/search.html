@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,6 +44,32 @@
                         No matching diya record was found in the public archive.
                         Perhaps the royal archivist left a clue elsewhere.
                     </p>
+                </div>
+            </div>
+
+            <!-- Progressive player hints -->
+            <div class="archive-message" style="margin-top: 20px;">
+                <span class="archive-symbol">✧</span>
+                <div class="archive-message-content">
+                    <h2>Archivist's Notes</h2>
+                    <p>
+                        Every investigation begins with a careful observation.
+                    </p>
+
+                    <details>
+                        <summary>Hint 1</summary>
+                        The archive repeats more than ordinary search text.
+                    </details>
+
+                    <details>
+                        <summary>Hint 2</summary>
+                        Can you make the archivist's browser execute JavaScript?
+                    </details>
+
+                    <details>
+                        <summary>Hint 3</summary>
+                        Investigate how the archivist identifies a visit and reports a discovery.
+                    </details>
                 </div>
             </div>
 
@@ -104,14 +131,16 @@
                     event.preventDefault();
 
                     reportResult.hidden = false;
-                    reportMessage.textContent = "The archivist is inspecting the record...";
+                    reportMessage.textContent =
+                        "The archivist is inspecting the record...";
                     reportFlag.textContent = "";
 
                     try {
                         const response = await fetch("/report", {
                             method: "POST",
                             headers: {
-                                "Content-Type": "application/x-www-form-urlencoded"
+                                "Content-Type":
+                                    "application/x-www-form-urlencoded"
                             },
                             body: new URLSearchParams({
                                 url: document.getElementById("report-url").value
@@ -121,13 +150,15 @@
                         const data = await response.json();
 
                         reportMessage.textContent =
-                            data.message || "The archivist could not inspect the record.";
+                            data.message ||
+                            "The archivist could not inspect the record.";
 
                         if (data.flag) {
                             reportFlag.textContent = "Flag: " + data.flag;
                         } else if (!response.ok) {
                             reportFlag.textContent =
-                                "Request failed (HTTP " + response.status + ").";
+                                "Request failed (HTTP " +
+                                response.status + ").";
                         }
                     } catch (error) {
                         reportMessage.textContent =
@@ -148,4 +179,3 @@
     </footer>
 </body>
 </html>
-
