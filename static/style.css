@@ -1093,3 +1093,56 @@ body.home-page {
 .home-page .hero-overlay {
     display: none !important;
 }
+
+/* Archivist's Notes — progressive challenge hints */
+.archive-notes {
+    margin: 28px 0;
+    padding: 22px 26px;
+    color: #fff7e8;
+    background: rgba(20, 10, 32, 0.48);
+    border: 1px solid rgba(255, 218, 145, 0.24);
+    border-radius: 14px;
+    backdrop-filter: blur(8px);
+}
+
+.archive-notes h2 {
+    margin: 0 0 8px;
+    color: #fff7e8;
+    font-size: 1.5rem;
+}
+
+.archive-notes .notes-intro {
+    margin: 0 0 16px;
+    color: #d5c5e8;
+    line-height: 1.6;
+}
+
+.archive-notes details {
+    margin-top: 10px;
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 218, 145, 0.16);
+    border-radius: 8px;
+}
+
+.archive-notes summary {
+    color: #ffe0a0;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.archive-notes details p {
+    margin: 12px 0 2px;
+    color: #e0d4ec;
+    line-height: 1.65;
+}
+
+.archive-notes details[open] {
+    border-color: rgba(255, 218, 145, 0.4);
+}
+
+@media (max-width: 600px) {
+    .archive-notes {
+        padding: 18px;
+    }
+}
