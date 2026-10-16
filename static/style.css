@@ -1146,3 +1146,89 @@ body.home-page {
         padding: 18px;
     }
 }
+/* ========================================
+   Archivist's Notes — Compact Layout
+   ======================================== */
+
+.archive-notes {
+    width: 100%;
+    max-width: 720px;
+    box-sizing: border-box;
+    margin: 24px auto;
+    padding: 18px 20px;
+
+    color: #fff7e8;
+    background: rgba(20, 10, 32, 0.58);
+    border: 1px solid rgba(255, 218, 145, 0.24);
+    border-radius: 12px;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.archive-notes h2 {
+    margin: 0 0 6px;
+    color: #fff7e8;
+    font-size: 1.25rem;
+    line-height: 1.4;
+}
+
+.archive-notes .notes-intro {
+    margin: 0 0 14px;
+    color: #d5c5e8;
+    font-size: 0.94rem;
+    line-height: 1.5;
+}
+
+.archive-notes details {
+    margin-top: 8px;
+    padding: 10px 12px;
+
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 218, 145, 0.16);
+    border-radius: 7px;
+
+    transition: border-color 0.2s ease,
+                background 0.2s ease;
+}
+
+.archive-notes details:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 218, 145, 0.35);
+}
+
+.archive-notes summary {
+    color: #ffe0a0;
+    cursor: pointer;
+    font-size: 0.94rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.archive-notes details p {
+    margin: 10px 0 2px;
+    color: #e0d4ec;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.archive-notes details[open] {
+    border-color: rgba(255, 218, 145, 0.4);
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+    .archive-notes {
+        max-width: 100%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .archive-notes h2 {
+        font-size: 1.15rem;
+    }
+
+    .archive-notes details {
+        padding: 9px 10px;
+    }
+}
